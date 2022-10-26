@@ -139,6 +139,10 @@ class NoteAPI {
         return false
     }
 
+    fun isValidIndex(index: Int) :Boolean{
+        return isValidListIndex(index, notes);
+    }
+
 }
 
 
