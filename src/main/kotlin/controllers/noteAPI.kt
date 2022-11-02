@@ -28,23 +28,11 @@ class NoteAPI(serializerType: Serializer){
         formatListString(
             notes.filter { note -> note.noteTitle.contains(searchString, ignoreCase = true) })
 
-    fun numberOfNotes(): Int {
-        return notes.size
-    }
+    fun numberOfNotes(): Int = notes.size
 
-    fun numberOfArchivedNotes(): Int {
-        return notes.stream()
-            .filter{note: Note -> !note.isNoteArchived}
-            .count()
-            .toInt()
-    }
+    fun numberOfArchivedNotes(): Int = notes.count { note: Note -> note.isNoteArchived }
 
-    fun numberOfActiveNotes(): Int {
-        return notes.stream()
-            .filter{note: Note -> !note.isNoteArchived}
-            .count()
-            .toInt()
-    }
+    fun numberOfActiveNotes(): Int = notes.count {note: Note -> !note.isNoteArchived }
 
     fun findNote(index: Int): Note? {
         return if (isValidListIndex(index, notes)) {
@@ -65,12 +53,7 @@ class NoteAPI(serializerType: Serializer){
             else "${numberOfNotesByPriority(priority)} notes with priority $priority: $listOfNotes"
         }
 
-    fun numberOfNotesByPriority(priority: Int): Int {
-        return notes.stream()
-            .filter{note: Note -> note.notePriority == priority}
-            .count()
-            .toInt()
-    }
+    fun numberOfNotesByPriority(priority: Int): Int = notes.count { p: Note -> p.notePriority == priority }
 
     fun deleteNote(indexToDelete: Int): Note? {
         return if (isValidListIndex(indexToDelete, notes)) {

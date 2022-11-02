@@ -115,7 +115,7 @@ class NoteAPITest {
 
         @Test
         fun `listArchivedNotes returns archived notes when ArrayList has archived notes stored`() {
-            assertEquals(3, populatedNotes!!.numberOfArchivedNotes())
+            assertEquals(2, populatedNotes!!.numberOfArchivedNotes())
             val archivedNotesString = populatedNotes!!.listArchivedNotes().lowercase()
             assertFalse(archivedNotesString.contains("learning kotlin"))
             assertTrue(archivedNotesString.contains("code app"))
@@ -322,7 +322,7 @@ class NoteAPITest {
 
         @Test
         fun numberOfArchivedNotesCalculatedCorrectly() {
-            assertEquals(3, populatedNotes!!.numberOfArchivedNotes())
+            assertEquals(2, populatedNotes!!.numberOfArchivedNotes())
             assertEquals(0, emptyNotes!!.numberOfArchivedNotes())
         }
 
