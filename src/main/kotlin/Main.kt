@@ -51,6 +51,7 @@ fun runMenu() {
             3 -> updateNote()
             4 -> deleteNote()
             5 -> archiveNote()
+            6 -> searchNotes()
             20 -> save()
             21 -> load()
             0 -> exitApp()
@@ -158,6 +159,16 @@ fun archiveNote() {
         } else {
             println("Archive NOT Successful")
         }
+    }
+}
+
+fun searchNotes() {
+    val searchTitle = readNextLine("Enter the description to search by: ")
+    val searchResults = noteAPI.searchByTitle(searchTitle)
+    if (searchResults.isEmpty()) {
+        println("No notes found")
+    } else {
+        println(searchResults)
     }
 }
 

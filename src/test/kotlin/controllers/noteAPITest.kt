@@ -342,4 +342,5 @@ class NoteAPITest {
             assertEquals(0, emptyNotes!!.numberOfNotesByPriority(1))
         }
     }
+
 }

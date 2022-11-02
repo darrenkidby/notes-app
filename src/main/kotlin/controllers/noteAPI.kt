@@ -18,12 +18,19 @@ class NoteAPI(serializerType: Serializer){
             notes.indexOf(note).toString() + ": " + note.toString() }
 
     fun listActiveNotes(): String =
-        notes.filter{ note -> note.isNoteArchived }
+        if (numberOfActiveNotes() == 0) "No active notes stored"
+        else notes.filter{ note -> !note.isNoteArchived }
             .joinToString (separator = "\n") { note ->
                 notes.indexOf(note).toString() + ": " + note.toString() }
 
     fun listArchivedNotes(): String =
-        notes.filter{ note -> note.isNoteArchived }
+        if (numberOfArchivedNotes() == 0) "No archived notes stored"
+        else notes.filter{ note -> note.isNoteArchived }
+            .joinToString (separator = "\n") { note ->
+                notes.indexOf(note).toString() + ": " + note.toString() }
+
+    fun searchByTitle(searchString : String)  =
+        notes.filter { note -> note.noteTitle.contains(searchString, ignoreCase = true)}
             .joinToString (separator = "\n") { note ->
                 notes.indexOf(note).toString() + ": " + note.toString() }
 
