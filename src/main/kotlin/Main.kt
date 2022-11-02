@@ -32,6 +32,7 @@ fun mainMenu(): Int {
          > |   3) Update a note             |
          > |   4) Delete a note             |
          > |   5) Archive a note            |
+         > |   6) Search a note             |
          > ----------------------------------
          > |   20) Save note                |
          > |   21) Load notes               |
