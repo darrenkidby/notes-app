@@ -16,13 +16,17 @@ private val logger = KotlinLogging.logger {}
 //private val noteAPI = NoteAPI(XMLSerializer(File("notes.xml")))
 private val noteAPI = NoteAPI(JSONSerializer(File("notes.json")))
 
+var colour = "\u001b[36m"
+var bold = "\u001B[1m"
+var normal = "\u001b[0m"
+
 fun main(args: Array<String>) {
     runMenu()
 }
 
 fun mainMenu(): Int {
     return readNextInt(
-        """ 
+        """ ${colour} ${bold}
          > ----------------------------------
          > |        NOTE KEEPER APP         |
          > ----------------------------------
@@ -38,7 +42,7 @@ fun mainMenu(): Int {
          > |   21) Load notes               |
          > |   0) Exit                      |
          > ----------------------------------
-         > ==>> """.trimMargin(">")
+         > ==>> ${normal}${colour}""".trimMargin(">")
     )
 }
 

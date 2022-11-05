@@ -164,3 +164,7 @@ I needed to add, Add a note, List all notes, Update a note Delete a note and exi
     4. I refactored the counting methods code.
     5. I checked the tests.
     6. I committed and pushed as well as use a pull request and deleted the branch.
+
+23. Additional
+
+    1. I added colour to the console. I found a GitHub webpage by mgumiero9 with different Ansi codes. https://gist.github.com/mgumiero9/665ab5f0e5e7e46cb049c1544a00e29f.
