@@ -168,3 +168,7 @@ I needed to add, Add a note, List all notes, Update a note Delete a note and exi
 23. Additional
 
     1. I added colour to the console. I found a GitHub webpage by mgumiero9 with different Ansi codes. https://gist.github.com/mgumiero9/665ab5f0e5e7e46cb049c1544a00e29f.
+    2. I created an issue and a branch.
+    3. I added finished and unfinished functions. (similar to archived and active)
+    4. I added the tests that were relevant.
+    5. I committed and pushed as well as use a pull request and deleted the branch.
