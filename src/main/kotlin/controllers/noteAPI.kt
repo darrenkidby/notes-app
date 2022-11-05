@@ -34,6 +34,18 @@ class NoteAPI(serializerType: Serializer){
 
     fun numberOfActiveNotes(): Int = notes.count {note: Note -> !note.isNoteArchived }
 
+    fun listUnfinishedNotes(): String =
+        if (numberOfUnfinishedNotes() == 0) "No active notes stored"
+        else formatListString(notes.filter{ note -> !note.isNoteDone })
+
+    fun listFinishedNotes(): String =
+        if (numberOfFinishedNotes() == 0) "No archived notes stored"
+        else formatListString(notes.filter{ note -> note.isNoteDone })
+
+    fun numberOfFinishedNotes(): Int = notes.count { note: Note -> note.isNoteDone }
+
+    fun numberOfUnfinishedNotes(): Int = notes.count {note: Note -> !note.isNoteDone }
+
     fun findNote(index: Int): Note? {
         return if (isValidListIndex(index, notes)) {
             notes[index]
@@ -82,6 +94,17 @@ class NoteAPI(serializerType: Serializer){
             val noteToArchive = notes[indexToArchive]
             if (!noteToArchive.isNoteArchived) {
                 noteToArchive.isNoteArchived = true
+                return true
+            }
+        }
+        return false
+    }
+
+    fun finishedNote(indexToArchive: Int): Boolean {
+        if (isValidIndex(indexToArchive)) {
+            val noteToArchive = notes[indexToArchive]
+            if (!noteToArchive.isNoteDone) {
+                noteToArchive.isNoteDone = true
                 return true
             }
         }
